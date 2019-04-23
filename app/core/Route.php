@@ -24,18 +24,18 @@ class Route {
 	    $action_name = strtolower($routes[2]);
 	}
 	// добавляем префиксы
-	$controller_name= ucfirst($controller_name);
+	$controller_name = ucfirst($controller_name);
 	$model_name = 'models\Model' . $controller_name;
 	$controller_name = 'controllers\Controller' . $controller_name;
 	$action_name = 'action_' . $action_name;
-	$model_path = 'app'.DIRECTORY_SEPARATOR.$model_name . '.php';
-	
+	$model_path = 'app' . DIRECTORY_SEPARATOR . $model_name . '.php';
+
 	if (file_exists($model_path)) {
 	    include_once $model_path;
 	}
 
 	// подцепляем файл с классом контроллера
-	$controller_path = 'app'.DIRECTORY_SEPARATOR.$controller_name . '.php';
+	$controller_path = 'app' . DIRECTORY_SEPARATOR . $controller_name . '.php';
 	if (file_exists($controller_path)) {
 	    include_once $controller_path;
 	} else {
@@ -57,7 +57,9 @@ class Route {
     }
 
     static public function errorPage404() {
-	echo '404';
+	header('HTTP/1.1 404 Not Found');
+	header('Status: 404 Not Found');
+	include_once 'app'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'page404.php';
 	exit();
     }
 

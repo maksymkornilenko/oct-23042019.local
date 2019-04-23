@@ -11,4 +11,8 @@ class ControllerMain extends Controller {
 	//TODO action
     }
 
+    public function action_create() {
+	echo 'Main controller action create';
+    }
+
 }
