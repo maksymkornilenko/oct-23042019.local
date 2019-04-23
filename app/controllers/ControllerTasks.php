@@ -13,7 +13,8 @@ class ControllerTasks extends Controller {
     }
 
     public function action_index() {
-	//TODO show all tasks
+	$this->view->tasks = $this->model->all();
+	$this->view->render('tasks_index_view');
     }
 
 }

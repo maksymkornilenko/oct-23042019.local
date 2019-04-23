@@ -14,7 +14,7 @@ class ModelTasks extends Model {
     protected $db;
 
     public function __construct() {
-	$this->db = new mysqli(DB_HOST, DBUSER, DB_PWD, DB_NAME);
+	$this->db = new mysqli(DB_HOST, DB_USER, DB_PWD, DB_NAME);
     }
 
     public function all() {
@@ -23,7 +23,7 @@ class ModelTasks extends Model {
 	if (!$result) {
 	    return false;
 	}
-	return $result->fetch_assoc(MYSQLI_ASSOC);
+	return $result->fetch_all(MYSQLI_ASSOC);
     }
 
 }
