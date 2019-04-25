@@ -20,8 +20,10 @@ class ControllerTasks extends Controller {
         $this->view->render('tasks_index_create');
     }
     public function action_add(){
-        $this->view->tasks = $this->model->add();
-        $this->view->render('tasks_index_add');
+	//todo забрать из пост нэйм проверерить и передать в эдд
+         $this->model->add($name);
+	 header('Location: http://oct-23042019.local/tasks');
+
     }
 
 }

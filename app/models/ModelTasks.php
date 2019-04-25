@@ -28,11 +28,14 @@ class ModelTasks extends Model {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function add() {
+    public function add($name) {
         if (!empty($this->task)) {
             return $this->db->query("INSERT INTO tasks (name) VALUES ('".$this->task."')");
-        }
-        return false;
+	    
+	}else{
+	    return false;
+	}
+        
     }
 
 }

@@ -1,3 +1,3 @@
 <?php
-return $View->render();
+echo 'all done';
 ?>
