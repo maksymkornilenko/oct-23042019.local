@@ -35,4 +35,4 @@ function getQuestions() {
 document.getElementById('questions-btn').onclick=function (){
     var questions=getQuestions();
     console.log(questions);
-}
+};
