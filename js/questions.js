@@ -15,24 +15,28 @@ document.getElementById('courses').onclick = function () {
     xhr.send();
 };
 
-function getQuestions() {
+document.getElementById('questions-btn').onclick = function () {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '/api/questions');
     xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4) {
-            if (xhr.status = 200) {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
                 var json_text = xhr.responseText;
                 var questions = JSON.parse(json_text);
-                return questions;
-            }else{
+                console.log(questions);
+                //TODO вывести в табличку
+                var tbody= document.querySelector('#questions tbody');
+                tbody.innerHTML='';
+                for(var i=0;i<questions.length;i++){
+                    var tr='<tr>\n\
+<td>'+(i+1)+'</td><td>'+questions[i].author+'</td><td>'+questions[i].text+'</td></tr>';
+                    tbody.innerHTML+=tr;
+                }
+                
+            } else {
                 return false;
             }
         }
     };
     xhr.send();
-}
-
-document.getElementById('questions-btn').onclick=function (){
-    var questions=getQuestions();
-    console.log(questions);
 };
