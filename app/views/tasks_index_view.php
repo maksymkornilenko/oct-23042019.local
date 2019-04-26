@@ -1,9 +1,19 @@
-<ul>
+<table>
     <?php foreach ($this->tasks as $task): ?>
-    <li><?= $task['name'] ?></li>
+    <tr>
+        <td><?= $task['name'] ?></td>
+        <td>
+            <form method="POST">
+                <input type="text" name="delete" value="<?= $task['id'] ?>"/>
+                <input type="submit" value="Del"/>
+            </form>
+        </td>
+
+    </tr>
     <?php endforeach; ?>
-    <form method="POST" action="tasks/create">
-        <input type="submit" value="Create"/>
-    </form>
-</ul>
+</table>
+<form method="POST" action="tasks/create">
+    <input type="submit" value="Create"/>
+</form>
+
 
