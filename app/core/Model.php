@@ -35,11 +35,18 @@ class Model {
 	    
 	}else{
 	    return false;
-	}
-        
+	}   
     }
     public function delete($id){
-            return $this->db->query("DELETE FROM `tasks` WHERE id=11;");
+            return $this->db->query("DELETE FROM `tasks` WHERE id=".$this->delete.";");
+    }
+    public function update($name) {
+        if (!empty($this->task)) {
+            return $this->db->query("UPDATE `tasks` SET name WHERE id=".$this->delete.";");
+	    
+	}else{
+	    return false;
+	}   
     }
 
 }

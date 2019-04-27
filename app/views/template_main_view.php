@@ -3,7 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <title>My Site</title>
+	<link href="css/question.css" rel="stylesheet" type="text/css"/>
     </head>
+    
     <body>
 	<h1>My site</h1>
 	<nav>

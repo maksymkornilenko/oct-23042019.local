@@ -27,7 +27,9 @@ class ControllerTasks extends Controller {
     }
     public function action_delete(){
         $this->model->delete($id);
-        header('Location: http://oct-23042019.local/tasks');
+	header('Location: http://oct-23042019.local/tasks');
     }
-
+    public function action_update(){
+	$this->model->update($id);
+    }
 }
