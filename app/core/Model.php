@@ -14,11 +14,15 @@ class Model {
     protected $table;
     public $task;
     public $delete;
+    public $change;
+    public $update;
 
     public function __construct() {
 	$this->db = new mysqli(DB_HOST, DB_USER, DB_PWD, DB_NAME);
 	$this->task = filter_input(INPUT_POST, 'add');
         $this->delete= filter_input(INPUT_POST, 'delete');
+        $this->change= filter_input(INPUT_POST, 'change');
+	$this->update= filter_input(INPUT_POST, 'update');
     }
 
     public function all() {
@@ -40,13 +44,7 @@ class Model {
     public function delete($id){
             return $this->db->query("DELETE FROM `tasks` WHERE id=".$this->delete.";");
     }
-    public function update($name) {
-        if (!empty($this->task)) {
-            return $this->db->query("UPDATE `tasks` SET name WHERE id=".$this->delete.";");
-	    
-	}else{
-	    return false;
-	}   
+    public function change() {
+            return $this->db->query("UPDATE `tasks` SET `name`= '".$this->change."' WHERE id=".$this->update.";");   
     }
-
 }

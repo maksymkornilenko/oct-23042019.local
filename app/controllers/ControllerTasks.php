@@ -30,6 +30,10 @@ class ControllerTasks extends Controller {
 	header('Location: http://oct-23042019.local/tasks');
     }
     public function action_update(){
-	$this->model->update($id);
+	$this->view->render('tasks_index_update');
+    }
+    public function action_change(){
+	$this->model->change();
+	header('Location: http://oct-23042019.local/tasks');
     }
 }

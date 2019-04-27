@@ -1,5 +1,5 @@
-<form method="POST" action="/tasks/update">
-    <input type="text" name="add" placeholder="Enter new task" value=<?=$task['name']?>/>
+<form method="POST" action="/tasks/change">
+    <input type="text" name="change" placeholder="Enter new task" value=<?=$task['name']?>>
     <input type="submit" value="Update"/>
 </form>
 

@@ -22,5 +22,13 @@ class ControllerApi extends Controller {
 	header("Content-type: application/json;");
 	echo $json_text;
     }
-
+    public function action_addquestion(){
+	//TODO в идеале нужно валидировать данные
+	$question= filter_input_array(INPUT_POST);
+	$this->model->addi($question);
+    }
+    public function action_deletequestion(){
+	$question= filter_input_array(INPUT_POST);
+        $this->model->deleting($id);
+    }
 }
